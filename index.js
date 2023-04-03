@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.post('/predict', async (req, res) => {
     const features = req.body.features;
     const url = 'https://api-5a3176f1-afdb75f3-dku.eu-west-3.app.dataiku.io/public/api/v1/prixdesfermes/predict_valeur_fonciere/predict';
+    res.setHeader('Access-Control-Allow-Origin', '*')
 
     try {
         const response = await axios.post(url, { features });
